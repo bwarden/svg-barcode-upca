@@ -51,7 +51,7 @@ SVG::Barcode::Code128 - Generator for SVG based Code 128 barcodes
 
     use SVG::Barcode::Code128;
 
-    my %params = (
+    my %params = (    # defaults
       background => 'white',
       foreground => 'black',
       lineheight => 30,
