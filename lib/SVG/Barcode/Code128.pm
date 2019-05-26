@@ -118,25 +118,25 @@ L<width|SVG::Barcode/width>.
 
 =head2 lineheight
 
-    $value  = $qrcode->lineheight;
-    $qrcode = $qrcode->lineheight($newvalue);
-    $qrcode = $qrcode->lineheight('');          # 30
+    $value   = $code128->lineheight;
+    $code128 = $code128->lineheight($newvalue);
+    $code128 = $code128->lineheight('');          # 30
 
 Getter and setter for the height of a line. Default C<30>.
 
 =head2 linewidth
 
-    $value  = $qrcode->linewidth;
-    $qrcode = $qrcode->linewidth($newvalue);
-    $qrcode = $qrcode->linewidth('');          # 1
+    $value   = $code128->linewidth;
+    $code128 = $code128->linewidth($newvalue);
+    $code128 = $code128->linewidth('');          # 1
 
 Getter and setter for the width of a single line. Default C<1>.
 
 =head2 textsize
 
-    $value  = $qrcode->textsize;
-    $qrcode = $qrcode->textsize($newvalue);
-    $qrcode = $qrcode->textsize('');          # 10
+    $value   = $code128->textsize;
+    $code128 = $code128->textsize($newvalue);
+    $code128 = $code128->textsize('');          # 10
 
 Getter and setter for the size of the text a the bottom. C<0> hides the text. Default C<10>.
 
