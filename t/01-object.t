@@ -25,12 +25,11 @@ can_ok $object, $_ for @methods;
 
 note 'Parameters';
 my %defaults = (
+  SVG::Barcode::DEFAULTS->%*,
   lineheight => 30,
   linewidth  => 1,
   textsize   => 10,
 );
-$defaults{$_} = SVG::Barcode::DEFAULTS->{$_}
-  for keys SVG::Barcode::DEFAULTS->%*;
 
 for (sort keys %defaults) {
   can_ok $object, $_;

@@ -1,6 +1,6 @@
 Revision history for perl distribution SVG-Barcode-Code128
 
-0.10 Not Released
+0.10 2019-05-26T06:28:09+0200
  BREAKING CHANGES
  - Require SVG::Barcode 0.10
  - Change parameters to methods

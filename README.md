@@ -6,22 +6,31 @@ SVG::Barcode::Code128 - Generator for SVG based Code 128 barcodes
 
     use SVG::Barcode::Code128;
 
-    my %params = (
-      background => 'white',
-      foreground => 'black',
-      lineheight => 30,
-      linewidth  => 2,
-      margin     => 10,
-      textsize   => 10,
-    );
-    my $code128 = SVG::Barcode::Code128->new(\%params);
+    my $code128 = SVG::Barcode::Code128->new;
     my $svg     = $code128->plot('https://perldoc.pl');
-    my $svg2    = $code128->param(foreground => 'red')->plot('https://perldoc.pl');
+
+    $code118->linewidth;     # 1
+    $code118->lineheight;    # 30
+    $code118->textsize;      # 10
+                             # from SVG::Barcode:
+    $code118->foreground;    # black
+    $code118->background;    # white
+    $code118->margin;        # 2
+    $code118->id;
+    $code118->class;
+    $code118->width;
+    $code118->height;
+
+    my %params = (
+      lineheight => 40,
+      textsize   => 0,
+    );
+    $code128 = SVG::Barcode::Code128->new(%params);
 
     # use as function
     use SVG::Barcode::Code128 'plot_code128';
 
-    my $svg = plot_code128('https://perldoc.pl', \%params);
+    my $svg = plot_code128('https://perldoc.pl', %params);
 
 # DESCRIPTION
 
@@ -33,7 +42,7 @@ SVG::Barcode::Code128 - Generator for SVG based Code 128 barcodes
 
     use SVG::Barcode::Code128 'plot_code128';
 
-    my $svg = plot_code128($text, \%params);
+    $svg = plot_code128($text, %params);
 
 Returns a Code 128 barcode using the provided text and parameters.
 
@@ -41,46 +50,51 @@ Returns a Code 128 barcode using the provided text and parameters.
 
 ## new
 
-    $code128 = SVG::Barcode::Code128->new(\%params);
     $code128 = SVG::Barcode::Code128->new;             # create with defaults
+    $code128 = SVG::Barcode::Code128->new(\%params);
 
-Creates a new Code 128 plotter. Inherited from ["new" in SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
-
-Accepted parameters are:
-
-- background
-
-    Color of the background. Default `'white'`.
-
-- foreground
-
-    Color of the dots. Default `'black'`.
-
-- lineheight
-
-    Height of the lines. Default `30`.
-
-- linewidth
-
-    Width of a single line. Default `2`.
-
-- margin
-
-    Margin around the code. Default `10`.
-
-- textsize
-
-    Size of the text at the bottom of the code. `0` means no text. Default `10`.
+Creates a new Code 128 plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
 
 # METHODS
 
-## param
-
-Getter and setter for the parameters. Inherited from ["param" in SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#param).
-
 ## plot
 
-Creates a SVG code. Inherited from ["plot" in SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#plot).
+Creates a SVG code. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#plot).
+
+# PARAMETERS
+
+Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
+[background](https://metacpan.org/pod/SVG::Barcode#background),
+[class](https://metacpan.org/pod/SVG::Barcode#class),
+[foreground](https://metacpan.org/pod/SVG::Barcode#foreground),
+[height](https://metacpan.org/pod/SVG::Barcode#height),
+[id](https://metacpan.org/pod/SVG::Barcode#id),
+[margin](https://metacpan.org/pod/SVG::Barcode#margin),
+[width](https://metacpan.org/pod/SVG::Barcode#width).
+
+## lineheight
+
+    $value  = $qrcode->lineheight;
+    $qrcode = $qrcode->lineheight($newvalue);
+    $qrcode = $qrcode->lineheight('');          # 30
+
+Getter and setter for the height of a line. Default `30`.
+
+## linewidth
+
+    $value  = $qrcode->linewidth;
+    $qrcode = $qrcode->linewidth($newvalue);
+    $qrcode = $qrcode->linewidth('');          # 1
+
+Getter and setter for the width of a single line. Default `1`.
+
+## textsize
+
+    $value  = $qrcode->textsize;
+    $qrcode = $qrcode->textsize($newvalue);
+    $qrcode = $qrcode->textsize('');          # 10
+
+Getter and setter for the size of the text a the bottom. `0` hides the text. Default `10`.
 
 # SEE ALSO
 
