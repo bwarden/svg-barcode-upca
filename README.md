@@ -9,17 +9,18 @@ SVG::Barcode::Code128 - Generator for SVG based Code 128 barcodes
     my $code128 = SVG::Barcode::Code128->new;
     my $svg     = $code128->plot('https://perldoc.pl');
 
-    $code118->linewidth;     # 1
-    $code118->lineheight;    # 30
-    $code118->textsize;      # 10
+    $code128->linewidth;     # 1
+    $code128->lineheight;    # 30
+    $code128->textsize;      # 10
                              # from SVG::Barcode:
-    $code118->foreground;    # black
-    $code118->background;    # white
-    $code118->margin;        # 2
-    $code118->id;
-    $code118->class;
-    $code118->width;
-    $code118->height;
+    $code128->foreground;    # black
+    $code128->background;    # white
+    $code128->margin;        # 2
+    $code128->id;
+    $code128->class;
+    $code128->width;
+    $code128->height;
+    $code128->scale;
 
     my %params = (
       lineheight => 40,
@@ -70,29 +71,30 @@ Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
 [height](https://metacpan.org/pod/SVG::Barcode#height),
 [id](https://metacpan.org/pod/SVG::Barcode#id),
 [margin](https://metacpan.org/pod/SVG::Barcode#margin),
+[scale](https://metacpan.org/pod/SVG::Barcode#scale),
 [width](https://metacpan.org/pod/SVG::Barcode#width).
 
 ## lineheight
 
-    $value  = $qrcode->lineheight;
-    $qrcode = $qrcode->lineheight($newvalue);
-    $qrcode = $qrcode->lineheight('');          # 30
+    $value   = $code128->lineheight;
+    $code128 = $code128->lineheight($newvalue);
+    $code128 = $code128->lineheight('');          # 30
 
 Getter and setter for the height of a line. Default `30`.
 
 ## linewidth
 
-    $value  = $qrcode->linewidth;
-    $qrcode = $qrcode->linewidth($newvalue);
-    $qrcode = $qrcode->linewidth('');          # 1
+    $value   = $code128->linewidth;
+    $code128 = $code128->linewidth($newvalue);
+    $code128 = $code128->linewidth('');          # 1
 
 Getter and setter for the width of a single line. Default `1`.
 
 ## textsize
 
-    $value  = $qrcode->textsize;
-    $qrcode = $qrcode->textsize($newvalue);
-    $qrcode = $qrcode->textsize('');          # 10
+    $value   = $code128->textsize;
+    $code128 = $code128->textsize($newvalue);
+    $code128 = $code128->textsize('');          # 10
 
 Getter and setter for the size of the text a the bottom. `0` hides the text. Default `10`.
 
