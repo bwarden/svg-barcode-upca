@@ -53,17 +53,18 @@ SVG::Barcode::Code128 - Generator for SVG based Code 128 barcodes
     my $code128 = SVG::Barcode::Code128->new;
     my $svg     = $code128->plot('https://perldoc.pl');
 
-    $code118->linewidth;     # 1
-    $code118->lineheight;    # 30
-    $code118->textsize;      # 10
+    $code128->linewidth;     # 1
+    $code128->lineheight;    # 30
+    $code128->textsize;      # 10
                              # from SVG::Barcode:
-    $code118->foreground;    # black
-    $code118->background;    # white
-    $code118->margin;        # 2
-    $code118->id;
-    $code118->class;
-    $code118->width;
-    $code118->height;
+    $code128->foreground;    # black
+    $code128->background;    # white
+    $code128->margin;        # 2
+    $code128->id;
+    $code128->class;
+    $code128->width;
+    $code128->height;
+    $code128->scale;
 
     my %params = (
       lineheight => 40,
@@ -114,6 +115,7 @@ L<foreground|SVG::Barcode/foreground>,
 L<height|SVG::Barcode/height>,
 L<id|SVG::Barcode/id>,
 L<margin|SVG::Barcode/margin>,
+L<scale|SVG::Barcode/scale>,
 L<width|SVG::Barcode/width>.
 
 =head2 lineheight
