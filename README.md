@@ -35,7 +35,7 @@ SVG::Barcode::Code128 - Generator for SVG based Code 128 barcodes
 
 # DESCRIPTION
 
-[SVG::Barcode::Code128](https://metacpan.org/pod/SVG::Barcode::Code128) is a generator for SVG based Code 128 barcodes.
+[SVG::Barcode::Code128](https://metacpan.org/pod/SVG%3A%3ABarcode%3A%3ACode128) is a generator for SVG based Code 128 barcodes.
 
 # FUNCTIONS
 
@@ -54,25 +54,25 @@ Returns a Code 128 barcode using the provided text and parameters.
     $code128 = SVG::Barcode::Code128->new;             # create with defaults
     $code128 = SVG::Barcode::Code128->new(\%params);
 
-Creates a new Code 128 plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#new).
+Creates a new Code 128 plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode#new).
 
 # METHODS
 
 ## plot
 
-Creates a SVG code. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode#plot).
+Creates a SVG code. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode#plot).
 
 # PARAMETERS
 
-Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG::Barcode):
-[background](https://metacpan.org/pod/SVG::Barcode#background),
-[class](https://metacpan.org/pod/SVG::Barcode#class),
-[foreground](https://metacpan.org/pod/SVG::Barcode#foreground),
-[height](https://metacpan.org/pod/SVG::Barcode#height),
-[id](https://metacpan.org/pod/SVG::Barcode#id),
-[margin](https://metacpan.org/pod/SVG::Barcode#margin),
-[scale](https://metacpan.org/pod/SVG::Barcode#scale),
-[width](https://metacpan.org/pod/SVG::Barcode#width).
+Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode):
+[background](https://metacpan.org/pod/SVG%3A%3ABarcode#background),
+[class](https://metacpan.org/pod/SVG%3A%3ABarcode#class),
+[foreground](https://metacpan.org/pod/SVG%3A%3ABarcode#foreground),
+[height](https://metacpan.org/pod/SVG%3A%3ABarcode#height),
+[id](https://metacpan.org/pod/SVG%3A%3ABarcode#id),
+[margin](https://metacpan.org/pod/SVG%3A%3ABarcode#margin),
+[scale](https://metacpan.org/pod/SVG%3A%3ABarcode#scale),
+[width](https://metacpan.org/pod/SVG%3A%3ABarcode#width).
 
 ## lineheight
 
@@ -98,12 +98,13 @@ Getter and setter for the width of a single line. Default `1`.
 
 Getter and setter for the size of the text a the bottom. `0` hides the text. Default `10`.
 
-# SEE ALSO
-
-[SVG::Barcode](https://metacpan.org/pod/SVG::Barcode), [Barcode::Code128](https://metacpan.org/pod/Barcode::Code128).
-
 # AUTHOR & COPYRIGHT
 
-© 2019 by Tekki (Rolf Stöckli).
+© 2019–2020 by Tekki (Rolf Stöckli).
 
-This program is free software, you can redistribute it and/or modify it under the terms of the Artistic License version 2.0.
+This program is free software, you can redistribute it and/or modify it under the terms of the
+Artistic License version 2.0.
+
+# SEE ALSO
+
+[SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode), [Barcode::Code128](https://metacpan.org/pod/Barcode%3A%3ACode128).

@@ -12,7 +12,7 @@ our @EXPORT_OK = qw|plot_code128|;
 
 use Barcode::Code128;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 use constant DEFAULTS => {
   lineheight => 30,
