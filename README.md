@@ -7,10 +7,10 @@ SVG::Barcode::UPCA - Generator for SVG based UPCA barcodes
     use SVG::Barcode::UPCA;
 
     my $upca = SVG::Barcode::UPCA->new;
-    my $svg     = $upca->plot('https://perldoc.pl');
+    my $svg     = $upca->plot('012345678905');
 
     $upca->linewidth;     # 1
-    $upca->lineheight;    # 30
+    $upca->lineheight;    # 50
     $upca->textsize;      # 10
                              # from SVG::Barcode:
     $upca->foreground;    # black
@@ -31,7 +31,7 @@ SVG::Barcode::UPCA - Generator for SVG based UPCA barcodes
     # use as function
     use SVG::Barcode::UPCA 'plot_upca';
 
-    my $svg = plot_upca('https://perldoc.pl', %params);
+    my $svg = plot_upca('012345678905', %params);
 
 # DESCRIPTION
 

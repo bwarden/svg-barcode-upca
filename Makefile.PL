@@ -3,7 +3,7 @@ use utf8;
 use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
   NAME           => 'SVG::Barcode::UPCA',
-  AUTHOR         => 'Brett T. Warden <brett.warden@gmail.com>',
+  AUTHOR         => 'Brett T. Warden <bwarden@cpan.org>',
   LICENSE        => 'artistic_2',
   ABSTRACT_FROM  => 'lib/SVG/Barcode/UPCA.pm',
   VERSION_FROM   => 'lib/SVG/Barcode/UPCA.pm',
