@@ -26,7 +26,7 @@ can_ok $object, $_ for @methods;
 note 'Parameters';
 my %defaults = (
   SVG::Barcode::DEFAULTS->%*,
-  lineheight => 30,
+  lineheight => 50,
   linewidth  => 1,
   textsize   => 10,
 );

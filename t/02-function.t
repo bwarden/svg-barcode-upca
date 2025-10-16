@@ -19,7 +19,7 @@ note 'Functions';
 my @functions = qw|plot_upca|;
 can_ok $package, $_ for @functions;
 
-is_deeply \@SVG::Barcode::UPCA, \@functions, 'All functions exported';
+is_deeply \@SVG::Barcode::UPCA::EXPORT_OK, \@functions, 'All functions exported';
 
 note 'Plot';
 my $plot = $package->can('plot_upca');

@@ -7,6 +7,7 @@ use v5.24;
 use feature 'signatures';
 no warnings 'experimental::signatures';
 
+use POSIX 'fmax';
 use Exporter 'import';
 our @EXPORT_OK = qw|plot_upca|;
 
@@ -15,8 +16,9 @@ use GD::Barcode::UPCA;
 our $VERSION = '0.01';
 
 use constant DEFAULTS => {
-  lineheight => 30,
+  lineheight => 50,
   linewidth  => 1,
+  quietzone  => 9,  # UPCA needs an explicit quiet zone left and right
   textsize   => 10,
 };
 
@@ -30,6 +32,7 @@ sub plot_upca ($text, %params) {
 
 # internal methods
 
+# Add support for taller lines (typically at the sides and middle)
 sub _plot_1d ($self, $code, $sign, $signlong) {
   my @line;
   my $width    = $self->{linewidth};
@@ -52,7 +55,7 @@ sub _plot_1d ($self, $code, $sign, $signlong) {
       if (@line) {
         $line[2] += $width;
       } else {
-        @line = ($x * $width, 0, $width, $height * 1.05);
+        @line = ($x * $width, 0, $width, $height * 1.1);
       }
     } else {
       $add_line->();
@@ -67,6 +70,57 @@ sub _plot ($self, $text) {
   my @code = split //, $self->{plotter}->barcode();
   $self->_plot_1d(\@code, '1', 'G');
   $self->_plot_text($text);
+}
+
+# We have to add the quiet zones on the sides
+sub _rect ($self, $x, $y, $width, $height, $color = $self->{foreground}) {
+  my $x1 = $x + $self->{margin} + $self->{quietzone};
+  my $y1 = $y + $self->{margin};
+  $self->{vbwidth}  = fmax($self->{vbwidth},  $x1 + $width + $self->{quietzone});
+  $self->{vbheight} = fmax($self->{vbheight}, $y1 + $height);
+  push $self->{elements}->@*,
+    qq|  <rect x="$x1" y="$y1" width="$width" height="$height" fill="$color"/>|;
+  return $self;
+}
+
+# Handle aligning the text below the barcode
+# TODO: find a better way to calculate the positions relative to the bars
+sub _text ($self, $text, $x_offset, $y_offset, $size, $color = $self->{foreground}) {
+  return $self if $size == 0;
+
+  my $escaped = $self->_xml_escape($text);
+  my $margin  = $self->{margin};
+  my $qz      = $self->{quietzone};
+  my $width   = $self->{linewidth};
+
+  # The full barcode string is 95 modules wide.
+  # The text is split into 3 parts:
+  # - 1st digit (system character)
+  # - next 5 digits
+  # - last 5 digits + check digit
+
+  my ($sys_char, $left_digits, $right_digits, $check_digit) =
+    $escaped =~ m/^(\d)(\d{5})(\d{5})(\d)$/;
+
+  my $y1 = $y_offset; # Position below the shortest bars
+  $self->{vbheight} = fmax $self->{vbheight}, $y1 + $size; # Ensure height accounts for text
+
+  # System character (1st digit)
+  my $x_sys = $margin; # Just inside the margin
+  push $self->{elements}->@*, qq|  <text x="$x_sys" y="$y1" font-size="$size" fill="$color">$sys_char</text>|;
+
+  # Left 5 digits (modules 3-47, center at 25)
+  my $x_left = $margin + $qz + (40 * $width) - (length($left_digits) * $size / 2);
+  push $self->{elements}->@*, qq|  <text x="$x_left" y="$y1" font-size="$size" fill="$color">$left_digits</text>|;
+
+  # Right 5 digits + check digit (modules 48-92, center at 70)
+  my $x_right = $margin + $qz + (80 * $width) - (length($right_digits) * $size / 2);
+  push $self->{elements}->@*, qq|  <text x="$x_right" y="$y1" font-size="$size" fill="$color">$right_digits</text>|;
+
+  # Check digit (last digit)
+  my $x_check = $margin + $qz *2 + 90; # Approximately just inside the margin
+  push $self->{elements}->@*, qq|  <text x="$x_check" y="$y1" font-size="$size" fill="$color">$check_digit</text>|;
+  return $self;
 }
 
 1;
