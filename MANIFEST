@@ -6,8 +6,8 @@ MANIFEST			This list of files
 META.json
 META.yml
 mk_test_files.pl
-SVG-Barcode-UPCA-0.01/META.json
-SVG-Barcode-UPCA-0.01/META.yml
+SVG-Barcode-UPCA-0.02/META.json
+SVG-Barcode-UPCA-0.02/META.yml
 t/00-basic.t
 t/01-object.t
 t/02-function.t
