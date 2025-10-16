@@ -1,4 +1,4 @@
 ---
 compose_file: containertest/perl-24-latest.yml
 forks: 4
-module: SVG::Barcode::Code128
+module: SVG::Barcode::UPCA
