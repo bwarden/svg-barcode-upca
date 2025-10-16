@@ -1,60 +1,60 @@
 # NAME
 
-SVG::Barcode::Code128 - Generator for SVG based Code 128 barcodes
+SVG::Barcode::UPCA - Generator for SVG based UPCA barcodes
 
 # SYNOPSIS
 
-    use SVG::Barcode::Code128;
+    use SVG::Barcode::UPCA;
 
-    my $code128 = SVG::Barcode::Code128->new;
-    my $svg     = $code128->plot('https://perldoc.pl');
+    my $upca = SVG::Barcode::UPCA->new;
+    my $svg     = $upca->plot('https://perldoc.pl');
 
-    $code128->linewidth;     # 1
-    $code128->lineheight;    # 30
-    $code128->textsize;      # 10
+    $upca->linewidth;     # 1
+    $upca->lineheight;    # 30
+    $upca->textsize;      # 10
                              # from SVG::Barcode:
-    $code128->foreground;    # black
-    $code128->background;    # white
-    $code128->margin;        # 2
-    $code128->id;
-    $code128->class;
-    $code128->width;
-    $code128->height;
-    $code128->scale;
+    $upca->foreground;    # black
+    $upca->background;    # white
+    $upca->margin;        # 2
+    $upca->id;
+    $upca->class;
+    $upca->width;
+    $upca->height;
+    $upca->scale;
 
     my %params = (
       lineheight => 40,
       textsize   => 0,
     );
-    $code128 = SVG::Barcode::Code128->new(%params);
+    $upca = SVG::Barcode::UPCA->new(%params);
 
     # use as function
-    use SVG::Barcode::Code128 'plot_code128';
+    use SVG::Barcode::UPCA 'plot_upca';
 
-    my $svg = plot_code128('https://perldoc.pl', %params);
+    my $svg = plot_upca('https://perldoc.pl', %params);
 
 # DESCRIPTION
 
-[SVG::Barcode::Code128](https://metacpan.org/pod/SVG%3A%3ABarcode%3A%3ACode128) is a generator for SVG based Code 128 barcodes.
+[SVG::Barcode::UPCA](https://metacpan.org/pod/SVG%3A%3ABarcode%3A%3AUPCA) is a generator for SVG based UPCA barcodes.
 
 # FUNCTIONS
 
-## plot\_code128
+## plot\_upca
 
-    use SVG::Barcode::Code128 'plot_code128';
+    use SVG::Barcode::UPCA 'plot_upca';
 
-    $svg = plot_code128($text, %params);
+    $svg = plot_upca($text, %params);
 
-Returns a Code 128 barcode using the provided text and parameters.
+Returns a UPCA barcode using the provided text and parameters.
 
 # CONSTRUCTOR
 
 ## new
 
-    $code128 = SVG::Barcode::Code128->new;             # create with defaults
-    $code128 = SVG::Barcode::Code128->new(\%params);
+    $upca = SVG::Barcode::UPCA->new;             # create with defaults
+    $upca = SVG::Barcode::UPCA->new(\%params);
 
-Creates a new Code 128 plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode#new).
+Creates a new UPCA plotter. Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode#new).
 
 # METHODS
 
@@ -76,35 +76,36 @@ Inherited from [SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode):
 
 ## lineheight
 
-    $value   = $code128->lineheight;
-    $code128 = $code128->lineheight($newvalue);
-    $code128 = $code128->lineheight('');          # 30
+    $value   = $upca->lineheight;
+    $upca = $upca->lineheight($newvalue);
+    $upca = $upca->lineheight('');          # 30
 
 Getter and setter for the height of a line. Default `30`.
 
 ## linewidth
 
-    $value   = $code128->linewidth;
-    $code128 = $code128->linewidth($newvalue);
-    $code128 = $code128->linewidth('');          # 1
+    $value   = $upca->linewidth;
+    $upca = $upca->linewidth($newvalue);
+    $upca = $upca->linewidth('');          # 1
 
 Getter and setter for the width of a single line. Default `1`.
 
 ## textsize
 
-    $value   = $code128->textsize;
-    $code128 = $code128->textsize($newvalue);
-    $code128 = $code128->textsize('');          # 10
+    $value   = $upca->textsize;
+    $upca = $upca->textsize($newvalue);
+    $upca = $upca->textsize('');          # 10
 
 Getter and setter for the size of the text a the bottom. `0` hides the text. Default `10`.
 
 # AUTHOR & COPYRIGHT
 
-© 2019–2020 by Tekki (Rolf Stöckli).
+Derived from SVG::Barcode::Code128 © 2019–2020 by Tekki (Rolf Stöckli).
+© 2025 by bwarden (Brett T. Warden).
 
 This program is free software, you can redistribute it and/or modify it under the terms of the
 Artistic License version 2.0.
 
 # SEE ALSO
 
-[SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode), [Barcode::Code128](https://metacpan.org/pod/Barcode%3A%3ACode128).
+[SVG::Barcode](https://metacpan.org/pod/SVG%3A%3ABarcode), [GD::Barcode::UPCA](https://metacpan.org/pod/GD%3A%3ABarcode%3A%3AUPCA).

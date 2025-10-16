@@ -11,25 +11,25 @@ use Test::More;
 my $package;
 
 BEGIN {
-  $package = 'SVG::Barcode::Code128';
+  $package = 'SVG::Barcode::UPCA';
   use_ok $package or exit;
 }
 
 note 'Functions';
-my @functions = qw|plot_code128|;
+my @functions = qw|plot_upca|;
 can_ok $package, $_ for @functions;
 
-is_deeply \@SVG::Barcode::Code128::EXPORT_OK, \@functions, 'All functions exported';
+is_deeply \@SVG::Barcode::UPCA, \@functions, 'All functions exported';
 
 note 'Plot';
-my $plot = $package->can('plot_code128');
-my $text = 'Tekki';
+my $plot = $package->can('plot_upca');
+my $text = '012345678905';
 ok my $svg = $plot->($text), 'Plot code';
-is $svg, slurp("$FindBin::Bin/resources/Tekki_black_text.svg"), 'Content is correct';
+is $svg, slurp("$FindBin::Bin/resources/012345678905_black_text.svg"), 'Content is correct';
 
 ok $svg = $plot->($text, foreground => 'red', lineheight => 20, textsize => 0),
   'Plot in red without text';
-is $svg, slurp("$FindBin::Bin/resources/Tekki_red_notext.svg"), 'Content is correct';
+is $svg, slurp("$FindBin::Bin/resources/012345678905_red_notext.svg"), 'Content is correct';
 
 eval { $plot->() };
 like $@, qr/Too few arguments for subroutine/, 'Correct error for missing text';

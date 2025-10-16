@@ -11,7 +11,7 @@ use Test::More;
 my $package;
 
 BEGIN {
-  $package = 'SVG::Barcode::Code128';
+  $package = 'SVG::Barcode::UPCA';
   use_ok $package or exit;
 }
 
@@ -56,14 +56,14 @@ is $object->linewidth('')->linewidth, $defaults{linewidth}, 'Set linewidth back 
 
 note 'Plot';
 ok $object = $package->new, 'Create object';
-my $text = 'Tekki';
+my $text = '012345678905';
 ok my $svg = $object->plot($text), 'Plot barcode';
-is $svg, slurp("$FindBin::Bin/resources/Tekki_black_text.svg"), 'Content is correct';
+is $svg, slurp("$FindBin::Bin/resources/012345678905_black_text.svg"), 'Content is correct';
 
 is $object->foreground('red')->textsize(0)->lineheight(20), $object,
   'Change color and height, hide text';
 ok $svg = $object->plot($text), 'Plot barcode';
-is $svg, slurp("$FindBin::Bin/resources/Tekki_red_notext.svg"), 'Content is correct';
+is $svg, slurp("$FindBin::Bin/resources/012345678905_red_notext.svg"), 'Content is correct';
 
 done_testing();
 

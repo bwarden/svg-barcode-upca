@@ -1,4 +1,3 @@
-#!start included /home/tekki/perl5/perlbrew/perls/perl-5.28.2/lib/5.28.2/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bRCS\b
 \bCVS\b

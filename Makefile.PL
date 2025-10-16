@@ -2,11 +2,11 @@
 use utf8;
 use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
-  NAME           => 'SVG::Barcode::Code128',
-  AUTHOR         => 'Rolf Stöckli <tekki@cpan.org>',
+  NAME           => 'SVG::Barcode::UPCA',
+  AUTHOR         => 'Brett T. Warden <bwarden@cpan.org>',
   LICENSE        => 'artistic_2',
-  ABSTRACT_FROM  => 'lib/SVG/Barcode/Code128.pm',
-  VERSION_FROM   => 'lib/SVG/Barcode/Code128.pm',
+  ABSTRACT_FROM  => 'lib/SVG/Barcode/UPCA.pm',
+  VERSION_FROM   => 'lib/SVG/Barcode/UPCA.pm',
   EXE_FILES      => [qw()],
   OBJECT         => '',
   BUILD_REQUIRES => {}
@@ -16,7 +16,7 @@ my %WriteMakefileArgs = (
 }
 ,
   PREREQ_PM      => {
-  'Barcode::Code128' => '2.21',
+  'GD::Barcode::UPCA' => '2.00',
   'SVG::Barcode' => '0.11',
   'perl' => 'v5.24.0'
 }
@@ -25,12 +25,12 @@ my %WriteMakefileArgs = (
     'dynamic_config' => 0,
     'meta-spec'      => {version => 2},
     'resources'      => {
-      bugtracker => {web => 'https://github.com/Tekki/svg-barcode-code128/issues'},
-      homepage   => 'https://github.com/Tekki/svg-barcode-code128',
+      bugtracker => {web => 'https://github.com/bwarden/svg-barcode-upca/issues'},
+      homepage   => 'https://github.com/bwarden/svg-barcode-upca',
       repository => {
         type => 'git',
-        url  => 'https://github.com/Tekki/svg-barcode-code128.git',
-        web  => 'https://github.com/Tekki/svg-barcode-code128',
+        url  => 'https://github.com/bwarden/svg-barcode-upca.git',
+        web  => 'https://github.com/bwarden/svg-barcode-upca',
       },
     },
     'x_contributors' => []

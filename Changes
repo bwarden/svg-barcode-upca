@@ -1,17 +1,4 @@
-Revision history for perl distribution SVG-Barcode-Code128
+Revision history for perl distribution SVG-Barcode-UPCA
 
-0.12 2020-01-31T17:35:37+0100
-  - Pod reorganized
-  - Code reformatted
-
-0.11 2019-05-28T17:23:23+0200
- - Upgrade to SVG::Barcode 0.11 with scale parameter
- - Correct variable names in docs
-
-0.10 2019-05-26T06:28:09+0200
- BREAKING CHANGES
- - Require SVG::Barcode 0.10
- - Change parameters to methods
-
-0.01 2019-05-23T08:27:01+0200
+0.01 2025-10-16T10:18:00-0700
  - First release
