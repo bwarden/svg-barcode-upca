@@ -34,6 +34,11 @@ is $svg, slurp("$FindBin::Bin/resources/1234567890128_red_notext.svg"), 'Content
 eval { $plot->() };
 like $@, qr/Too few arguments for subroutine/, 'Correct error for missing text';
 
+note 'Plot with uncalculated check digit';
+my $text_no_check_digit = '123456789012';
+ok $svg = $plot->($text_no_check_digit), 'Plot code, letting library calculate check digit';
+is $svg, slurp("$FindBin::Bin/resources/1234567890128_black_text.svg"), 'Content is correct';
+
 done_testing();
 
 # utils

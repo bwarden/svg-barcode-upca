@@ -64,11 +64,12 @@ sub _plot_1d ($self, $code, $sign, $signlong) {
 }
 
 sub _plot ($self, $text) {
-  $self->{plotter} ||= GD::Barcode::UPCE->new($text);
+  $self->{plotter} ||= GD::Barcode::UPCE->new($text)
+    or die "Cannot create GD::Barcode::UPCE plotter: " . $GD::Barcode::UPCE::errStr;
 
   my @code = split //, $self->{plotter}->barcode();
   $self->_plot_1d(\@code, '1', 'G');
-  $self->_plot_text($text);
+  $self->_plot_text($self->{plotter}->{text});
 }
 
 # We have to add the quiet zones on the sides
