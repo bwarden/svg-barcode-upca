@@ -1,4 +1,5 @@
 package SVG::Barcode::UPCA;
+
 use parent 'SVG::Barcode';
 use strict;
 use warnings;
@@ -12,8 +13,6 @@ use Exporter 'import';
 our @EXPORT_OK = qw|plot_upca|;
 
 use GD::Barcode::UPCA;
-
-our $VERSION = '0.02';
 
 use constant DEFAULTS => {
   lineheight => 50,
@@ -230,6 +229,7 @@ Getter and setter for the size of the text a the bottom. C<0> hides the text. De
 =head1 AUTHOR & COPYRIGHT
 
 Derived from SVG::Barcode::Code128 © 2019–2020 by Tekki (Rolf Stöckli).
+
 © 2025 by bwarden (Brett T. Warden).
 
 This program is free software, you can redistribute it and/or modify it under the terms of the

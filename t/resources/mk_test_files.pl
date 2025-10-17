@@ -16,11 +16,11 @@ $obj->lineheight(20);
 
 my $svg_red = $obj->plot('012345678905');
 
-open(FILE, '>', 't/resources/012345678905_black_text.svg');
+open(FILE, '>', '012345678905_black_text.svg');
 print FILE $svg_black;
 close(FILE);
 
-open(FILE, '>', 't/resources/012345678905_red_notext.svg');
+open(FILE, '>', '012345678905_red_notext.svg');
 print FILE $svg_red;
 close(FILE);
 
